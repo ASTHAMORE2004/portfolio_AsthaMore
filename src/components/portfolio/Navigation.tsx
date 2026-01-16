@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download, Linkedin, Github, Mail } from "lucide-react";
+import { Menu, X, Download, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/portfolio-data";
 
@@ -9,7 +9,6 @@ const navItems = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
-  { label: "Impact", href: "#impact" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -39,9 +38,9 @@ export const Navigation = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "glass-effect border-b border-border/50"
+            ? "card-glass border-b border-border/50"
             : "bg-transparent"
         }`}
       >
@@ -50,25 +49,26 @@ export const Navigation = () => {
             {/* Logo */}
             <motion.a
               href="#"
-              className="font-heading text-xl lg:text-2xl font-bold gradient-text"
-              whileHover={{ scale: 1.05 }}
+              className="font-heading text-xl lg:text-2xl font-bold"
+              whileHover={{ scale: 1.02 }}
             >
-              {personalInfo.name.split(" ")[0]}
+              <span className="gradient-text">{personalInfo.name.split(" ")[0]}</span>
               <span className="text-muted-foreground">.</span>
             </motion.a>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
-              {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors relative group"
-                >
-                  {item.label}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-1/2" />
-                </button>
-              ))}
+            <div className="hidden lg:flex items-center">
+              <div className="flex items-center gap-1 bg-secondary/50 rounded-full px-2 py-1.5 border border-border/50">
+                {navItems.map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToSection(item.href)}
+                    className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-secondary"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Desktop CTAs */}
@@ -77,7 +77,7 @@ export const Navigation = () => {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                className="p-2.5 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -85,13 +85,13 @@ export const Navigation = () => {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                className="p-2.5 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
               >
                 <Github className="w-5 h-5" />
               </a>
-              <Button variant="hero" size="sm" asChild>
+              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl" asChild>
                 <a href={personalInfo.resumeUrl} download>
-                  <Download className="w-4 h-4" />
+                  <Download className="w-4 h-4 mr-2" />
                   Resume
                 </a>
               </Button>
@@ -100,7 +100,7 @@ export const Navigation = () => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-foreground"
+              className="lg:hidden p-2 rounded-xl text-foreground hover:bg-secondary transition-colors"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -112,20 +112,20 @@ export const Navigation = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="fixed inset-0 z-40 lg:hidden"
           >
             <div
-              className="absolute inset-0 bg-background/80 backdrop-blur-xl"
+              className="absolute inset-0 bg-background/90 backdrop-blur-xl"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="absolute top-20 left-4 right-4 bg-card border border-border rounded-2xl p-6 shadow-2xl"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="absolute top-20 left-4 right-4 bento-card p-6"
             >
               <div className="flex flex-col gap-2">
                 {navItems.map((item, index) => (
@@ -135,7 +135,7 @@ export const Navigation = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                     onClick={() => scrollToSection(item.href)}
-                    className="text-left py-3 px-4 text-lg font-medium text-foreground hover:text-primary hover:bg-secondary/50 rounded-lg transition-colors"
+                    className="text-left py-3 px-4 text-lg font-medium text-foreground hover:text-primary hover:bg-secondary/50 rounded-xl transition-colors"
                   >
                     {item.label}
                   </motion.button>
@@ -143,33 +143,27 @@ export const Navigation = () => {
               </div>
               
               <div className="mt-6 pt-6 border-t border-border flex items-center justify-between">
-                <div className="flex gap-4">
+                <div className="flex gap-3">
                   <a
                     href={personalInfo.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                    className="p-2.5 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
                   >
-                    <Linkedin className="w-6 h-6" />
+                    <Linkedin className="w-5 h-5" />
                   </a>
                   <a
                     href={personalInfo.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                    className="p-2.5 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
                   >
-                    <Github className="w-6 h-6" />
-                  </a>
-                  <a
-                    href={`mailto:${personalInfo.email}`}
-                    className="p-2 text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Mail className="w-6 h-6" />
+                    <Github className="w-5 h-5" />
                   </a>
                 </div>
-                <Button variant="hero" size="sm" asChild>
+                <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl" asChild>
                   <a href={personalInfo.resumeUrl} download>
-                    <Download className="w-4 h-4" />
+                    <Download className="w-4 h-4 mr-2" />
                     Resume
                   </a>
                 </Button>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ChevronRight, Code } from "lucide-react";
+import { ExternalLink, Github, Code, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/portfolio-data";
 import { CodeSnippet } from "./CodeSnippet";
@@ -9,8 +9,11 @@ export const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
   return (
-    <section id="projects" className="py-24 bg-card/30">
-      <div className="container px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-24 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 mesh-gradient opacity-50" />
+
+      <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -19,16 +22,17 @@ export const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          <span className="section-label mb-4 inline-flex">🚀 Portfolio</span>
+          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold mt-4 mb-4">
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real-world solutions with measurable impact and clean code
+            Real-world applications with measurable impact
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid gap-8 lg:gap-12">
+        {/* Projects */}
+        <div className="space-y-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -36,22 +40,33 @@ export const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="card-elevated rounded-2xl overflow-hidden"
+              className="bento-card overflow-hidden"
             >
-              <div className="grid lg:grid-cols-2 gap-0">
+              <div className="grid lg:grid-cols-5 gap-0">
                 {/* Project Info */}
-                <div className="p-6 lg:p-8 flex flex-col">
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="font-heading text-2xl font-bold text-foreground">
-                      {project.title}
-                    </h3>
+                <div className="lg:col-span-3 p-8">
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div>
+                      <div className="flex items-center gap-3 mb-2">
+                        <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground">
+                          {project.title}
+                        </h3>
+                        {project.featured && (
+                          <span className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20">
+                            Featured
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-lg text-primary font-medium">{project.description}</p>
+                    </div>
                     <div className="flex gap-2">
                       {project.githubUrl && (
                         <a
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-lg bg-secondary hover:bg-primary/20 hover:text-primary transition-colors"
+                          className="p-2.5 rounded-xl bg-secondary hover:bg-primary/10 hover:text-primary transition-all"
                         >
                           <Github className="w-5 h-5" />
                         </a>
@@ -61,7 +76,7 @@ export const Projects = () => {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-lg bg-secondary hover:bg-primary/20 hover:text-primary transition-colors"
+                          className="p-2.5 rounded-xl bg-secondary hover:bg-primary/10 hover:text-primary transition-all"
                         >
                           <ExternalLink className="w-5 h-5" />
                         </a>
@@ -69,20 +84,17 @@ export const Projects = () => {
                     </div>
                   </div>
 
-                  <p className="text-muted-foreground mb-4">
-                    {project.description}
-                  </p>
-
-                  <p className="text-sm text-foreground/80 mb-6">
+                  {/* Description */}
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
                     {project.longDescription}
                   </p>
 
                   {/* Metrics */}
-                  <div className="flex flex-wrap gap-4 mb-6">
+                  <div className="flex flex-wrap gap-6 mb-6">
                     {project.metrics.map((metric, i) => (
                       <div key={i} className="text-center">
-                        <div className="text-xl font-bold gradient-text">{metric.value}</div>
-                        <div className="text-xs text-muted-foreground">{metric.label}</div>
+                        <div className="text-2xl font-bold gradient-text">{metric.value}</div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider">{metric.label}</div>
                       </div>
                     ))}
                   </div>
@@ -92,29 +104,29 @@ export const Projects = () => {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-sm font-medium rounded-full bg-primary/10 text-primary border border-primary/20"
+                        className="px-3 py-1.5 text-sm font-medium rounded-xl bg-secondary text-secondary-foreground border border-border"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
+                  {/* View Code Button */}
                   {project.codeSnippet && (
                     <Button
                       variant="outline"
-                      size="sm"
                       onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
-                      className="self-start mt-auto"
+                      className="rounded-xl"
                     >
-                      <Code className="w-4 h-4" />
-                      {selectedProject === project.id ? "Hide Code" : "View Code"}
-                      <ChevronRight className={`w-4 h-4 transition-transform ${selectedProject === project.id ? "rotate-90" : ""}`} />
+                      <Code className="w-4 h-4 mr-2" />
+                      {selectedProject === project.id ? "Hide Code" : "View Code Snippet"}
+                      <ArrowUpRight className={`w-4 h-4 ml-2 transition-transform ${selectedProject === project.id ? "rotate-90" : ""}`} />
                     </Button>
                   )}
                 </div>
 
-                {/* Code Preview / Project Visual */}
-                <div className="relative bg-secondary/30 border-l border-border min-h-[300px] lg:min-h-[400px]">
+                {/* Code Preview */}
+                <div className="lg:col-span-2 relative bg-card/50 border-l border-border min-h-[350px]">
                   {selectedProject === project.id && project.codeSnippet ? (
                     <CodeSnippet
                       code={project.codeSnippet.code}
@@ -122,13 +134,13 @@ export const Projects = () => {
                       description={project.codeSnippet.description}
                     />
                   ) : (
-                    <div className="absolute inset-0 flex items-center justify-center p-6">
+                    <div className="absolute inset-0 flex items-center justify-center p-8">
                       <div className="text-center">
-                        <div className="w-20 h-20 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
-                          <Code className="w-10 h-10 text-primary" />
+                        <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
+                          <Code className="w-8 h-8 text-primary" />
                         </div>
                         <p className="text-muted-foreground text-sm">
-                          Click "View Code" to see implementation
+                          Click "View Code" to see implementation details
                         </p>
                       </div>
                     </div>
