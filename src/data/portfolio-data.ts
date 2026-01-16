@@ -1,23 +1,25 @@
-// Portfolio Data - Update this with your actual information
+// Portfolio Data - Astha More
 export const personalInfo = {
   name: "Astha More",
   title: "Full-Stack Developer & Software Engineer",
-  tagline: "Building scalable solutions with modern technologies",
-  email: "asthamore@email.com",
-  linkedin: "https://linkedin.com/in/asthamore",
-  github: "https://github.com/asthamore",
-  location: "India",
-  phone: "+91 XXXXXXXXXX",
-  bio: "Passionate software engineer with expertise in full-stack development, data engineering, and cloud technologies. I specialize in building scalable applications and data pipelines that drive business value.",
+  tagline: "Building scalable, user-centric fintech and AI-driven applications",
+  email: "asthamore@email.com", // Update with your actual email
+  linkedin: "https://linkedin.com/in/asthamore", // Update with your LinkedIn
+  github: "https://github.com/asthamore", // Update with your GitHub
+  youtube: "https://youtube.com/@asthamore", // Update with your YouTube
+  leetcode: "https://leetcode.com/asthamore", // Update with your LeetCode
+  location: "Chennai, India",
+  phone: "+91-8982296626",
+  bio: "Computer Science undergraduate with strong foundations in DSA, systems, and cloud-native development, backed by a 9.7 CGPA. Experienced in building scalable, user-centric fintech and AI-driven applications through internships at Infosys, Cognizant, and Wipro.",
   resumeUrl: "/resume/ASTHAMORE_CV.pdf",
-  introVideoUrl: "", // Add your intro video URL here
+  introVideoUrl: "",
 };
 
 export const stats = [
-  { label: "Years Experience", value: 3, suffix: "+" },
-  { label: "Projects Completed", value: 15, suffix: "+" },
-  { label: "Technologies Mastered", value: 20, suffix: "+" },
-  { label: "Performance Improvement", value: 40, suffix: "%" },
+  { label: "CGPA", value: 9.7, suffix: "/10" },
+  { label: "Internships", value: 3, suffix: "+" },
+  { label: "Projects Completed", value: 10, suffix: "+" },
+  { label: "Performance Improvement", value: 45, suffix: "%" },
 ];
 
 export interface Experience {
@@ -35,43 +37,64 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: "exp-1",
-    company: "Tech Company",
-    role: "Software Engineer",
-    duration: "2022 - Present",
+    company: "Infosys Springboard",
+    role: "Android Developer Intern",
+    duration: "March '25 – June '25",
     location: "Remote",
-    description: "Led development of scalable microservices and data pipelines, improving system performance and reliability.",
+    description: "Optimized UI/UX and performance metrics for Android applications using modern development practices.",
     achievements: [
-      "Designed and implemented RESTful APIs serving 10M+ requests/day",
-      "Reduced database query times by 60% through optimization",
-      "Built real-time data streaming pipeline using Apache Kafka",
-      "Mentored junior developers and conducted code reviews",
+      "Optimized UI/UX and performance metrics using Redux and flexbox for state management",
+      "Improved app responsiveness by 30% through performance optimization",
+      "Reduced average page load time from 5 seconds to 3.75 seconds (25% reduction)",
+      "Enhanced user retention through improved load times",
     ],
     impact: [
-      { metric: "API Response Time", value: 60, suffix: "% faster" },
-      { metric: "System Uptime", value: 99.9, suffix: "%" },
-      { metric: "Code Coverage", value: 90, suffix: "%" },
+      { metric: "App Responsiveness", value: 30, suffix: "% faster" },
+      { metric: "Load Time Reduction", value: 25, suffix: "%" },
+      { metric: "User Retention", value: 20, suffix: "% increase" },
     ],
-    technologies: ["Python", "Java", "AWS", "Kafka", "PostgreSQL", "Docker"],
+    technologies: ["React Native", "Redux", "Flexbox", "Android", "JavaScript"],
   },
   {
     id: "exp-2",
-    company: "Startup Inc",
-    role: "Full-Stack Developer",
-    duration: "2020 - 2022",
-    location: "Hybrid",
-    description: "Developed end-to-end features for a SaaS platform serving 50K+ users.",
+    company: "Cognizant",
+    role: "Software Engineer Intern",
+    duration: "August '24 – September '24",
+    location: "IIT Roorkee",
+    description: "Led the development, maintenance, and updates of the official website with performance and accessibility improvements.",
     achievements: [
-      "Built responsive React dashboards with real-time data visualization",
-      "Implemented authentication system with OAuth 2.0",
-      "Developed CI/CD pipelines reducing deployment time by 70%",
-      "Created automated testing framework improving bug detection",
+      "Led development, maintenance, and updates of the official website",
+      "Improved website performance by 35% through optimization",
+      "Optimized responsiveness and user experience across all devices",
+      "Enhanced accessibility by 30% for better inclusivity",
+    ],
+    impact: [
+      { metric: "Performance", value: 35, suffix: "% faster" },
+      { metric: "Accessibility", value: 30, suffix: "% improved" },
+      { metric: "Cross-device UX", value: 100, suffix: "% responsive" },
+    ],
+    technologies: ["JavaScript", "HTML", "CSS", "React", "Performance Optimization"],
+  },
+  {
+    id: "exp-3",
+    company: "Wipro",
+    role: "Full-Stack Web Developer",
+    duration: "June '24 – July '24",
+    location: "Remote",
+    description: "Enhanced UI/UX design, implemented new features, and ensured cross-browser compatibility for web applications.",
+    achievements: [
+      "Enhanced UI/UX design and implemented new features",
+      "Ensured cross-browser compatibility across major browsers",
+      "Improved user engagement by 45% through UX improvements",
+      "Fixed bugs, monitored analytics, and optimized responsiveness",
+      "Reduced load time by 25% through optimization",
     ],
     impact: [
       { metric: "User Engagement", value: 45, suffix: "% increase" },
-      { metric: "Deployment Time", value: 70, suffix: "% faster" },
-      { metric: "Bug Detection", value: 80, suffix: "% improvement" },
+      { metric: "Load Time", value: 25, suffix: "% faster" },
+      { metric: "Browser Support", value: 100, suffix: "%" },
     ],
-    technologies: ["React", "Node.js", "TypeScript", "MongoDB", "AWS", "GitHub Actions"],
+    technologies: ["React", "JavaScript", "CSS", "HTML", "Analytics"],
   },
 ];
 
@@ -95,101 +118,134 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "proj-1",
-    title: "Real-Time Analytics Dashboard",
-    description: "High-performance analytics platform processing 1M+ events daily",
-    longDescription: "Built a comprehensive analytics dashboard that processes and visualizes real-time data streams. Features include custom chart components, automated report generation, and predictive analytics.",
+    title: "FinWise – Micro-investing & Smart Spending",
+    description: "Scalable fintech application for automated expense tracking and personalized budgeting for students",
+    longDescription: "Designed and built a scalable fintech application for automated expense tracking and personalized budgeting, processing structured financial data through modular backend services. Implemented data-driven recommendation logic and RESTful APIs, optimizing data processing and response latency. Deployed on AWS with performance optimizations including efficient queries, caching, and logging.",
     image: "",
-    technologies: ["React", "TypeScript", "D3.js", "WebSocket", "Redis", "PostgreSQL"],
+    technologies: ["React Native", "FastAPI", "AWS S3", "MongoDB", "RESTful APIs", "Caching"],
     liveUrl: "#",
     githubUrl: "#",
     metrics: [
-      { label: "Events/Day", value: "1M+" },
-      { label: "Latency", value: "<100ms" },
-      { label: "Uptime", value: "99.9%" },
+      { label: "Data Processing", value: "Real-time" },
+      { label: "Response Latency", value: "Optimized" },
+      { label: "Deployment", value: "AWS" },
     ],
     codeSnippet: {
-      language: "typescript",
-      code: `// Real-time data streaming hook
-const useRealTimeData = (channel: string) => {
-  const [data, setData] = useState<DataPoint[]>([]);
-  
-  useEffect(() => {
-    const ws = new WebSocket(\`wss://api/stream/\${channel}\`);
+      language: "python",
+      code: `# RESTful API for expense tracking
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+import boto3
+
+app = FastAPI()
+
+class Expense(BaseModel):
+    user_id: str
+    amount: float
+    category: str
+    description: str
+
+@app.post("/api/expenses")
+async def create_expense(expense: Expense):
+    # Process and store expense data
+    processed = await process_expense(expense)
     
-    ws.onmessage = (event) => {
-      const newData = JSON.parse(event.data);
-      setData(prev => [...prev.slice(-99), newData]);
-    };
+    # Generate personalized recommendations
+    recommendations = await get_budget_recommendations(
+        user_id=expense.user_id,
+        expense_data=processed
+    )
     
-    return () => ws.close();
-  }, [channel]);
-  
-  return { data, isConnected: true };
-};`,
-      description: "Custom React hook for real-time WebSocket data streaming",
+    return {
+        "status": "success",
+        "expense_id": processed.id,
+        "recommendations": recommendations
+    }`,
+      description: "FastAPI endpoint for expense tracking with personalized recommendations",
     },
   },
   {
     id: "proj-2",
-    title: "ML-Powered Recommendation Engine",
-    description: "Personalized recommendation system with 40% higher engagement",
-    longDescription: "Developed a machine learning recommendation engine using collaborative filtering and content-based approaches. Integrated with production systems serving millions of users.",
+    title: "FitVerse AI – Fitness Tracker App",
+    description: "Cross-platform React Native fitness app with AI chatbot achieving 82% workout adherence",
+    longDescription: "Built a cross-platform React Native app with Expo and an AI chatbot. Improved rendering performance by 25% and reduced build size by 15%. Validated with 50+ users, achieving 82% workout adherence and 30% engagement boost within two weeks through UX tweaks and personalized suggestions.",
     image: "",
-    technologies: ["Python", "TensorFlow", "FastAPI", "Redis", "Kubernetes"],
+    technologies: ["React Native", "Expo", "AI Chatbot", "JavaScript", "UX Design"],
+    liveUrl: "#",
     githubUrl: "#",
     metrics: [
-      { label: "Engagement", value: "+40%" },
-      { label: "Accuracy", value: "92%" },
-      { label: "Response", value: "50ms" },
+      { label: "Workout Adherence", value: "82%" },
+      { label: "Engagement Boost", value: "+30%" },
+      { label: "Rendering", value: "+25%" },
     ],
     codeSnippet: {
-      language: "python",
-      code: `# Hybrid recommendation model
-class HybridRecommender:
-    def __init__(self, collaborative_model, content_model):
-        self.collab = collaborative_model
-        self.content = content_model
-        
-    def predict(self, user_id: str, n_items: int = 10):
-        collab_scores = self.collab.predict(user_id)
-        content_scores = self.content.predict(user_id)
-        
-        # Weighted ensemble
-        combined = 0.7 * collab_scores + 0.3 * content_scores
-        return combined.argsort()[-n_items:][::-1]`,
-      description: "Hybrid ML recommendation combining collaborative & content-based filtering",
+      language: "typescript",
+      code: `// AI-powered fitness recommendation hook
+const useFitnessAI = (userId: string) => {
+  const [recommendations, setRecommendations] = useState<Workout[]>([]);
+  
+  const getPersonalizedWorkout = async (userProfile: UserProfile) => {
+    const response = await aiService.generateWorkout({
+      fitnessLevel: userProfile.level,
+      goals: userProfile.goals,
+      preferredDuration: userProfile.timeAvailable,
+      equipment: userProfile.availableEquipment
+    });
+    
+    // 82% adherence improvement through personalization
+    return response.workouts.map(workout => ({
+      ...workout,
+      adaptiveIntensity: calculateAdaptiveIntensity(userProfile)
+    }));
+  };
+  
+  return { recommendations, getPersonalizedWorkout };
+};`,
+      description: "Custom React Native hook for AI-powered personalized fitness recommendations",
     },
   },
   {
     id: "proj-3",
-    title: "Microservices Architecture Platform",
-    description: "Scalable microservices handling 10M+ requests/day",
-    longDescription: "Architected and implemented a microservices platform with service mesh, distributed tracing, and automated scaling. Reduced infrastructure costs by 35%.",
+    title: "AWS Cloud Infrastructure",
+    description: "Scalable cloud architecture with S3, performance optimization, and deployment automation",
+    longDescription: "Designed and implemented scalable cloud infrastructure on AWS with a focus on performance optimization, efficient queries, caching strategies, and comprehensive logging. Built production-ready systems capable of handling increasing user load with automated deployment pipelines.",
     image: "",
-    technologies: ["Go", "gRPC", "Kubernetes", "Istio", "Prometheus", "Grafana"],
+    technologies: ["AWS S3", "AWS EC2", "CloudFormation", "CI/CD", "Docker", "Monitoring"],
     githubUrl: "#",
     metrics: [
-      { label: "Requests/Day", value: "10M+" },
-      { label: "Cost Saved", value: "35%" },
-      { label: "Scaling", value: "Auto" },
+      { label: "Uptime", value: "99.9%" },
+      { label: "Scalability", value: "Auto" },
+      { label: "Cost", value: "Optimized" },
     ],
     codeSnippet: {
-      language: "go",
-      code: `// gRPC service with circuit breaker
-func (s *Service) GetUser(ctx context.Context, 
-    req *pb.UserRequest) (*pb.UserResponse, error) {
+      language: "typescript",
+      code: `// AWS S3 integration with caching layer
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { Redis } from "ioredis";
+
+class CloudStorageService {
+  private s3: S3Client;
+  private cache: Redis;
+
+  async uploadWithCache(key: string, data: Buffer) {
+    // Upload to S3
+    await this.s3.send(new PutObjectCommand({
+      Bucket: process.env.S3_BUCKET,
+      Key: key,
+      Body: data
+    }));
     
-    result, err := s.circuitBreaker.Execute(func() (interface{}, error) {
-        return s.userRepo.FindByID(ctx, req.UserId)
-    })
+    // Cache metadata for quick retrieval
+    await this.cache.setex(
+      \`meta:\${key}\`,
+      3600,
+      JSON.stringify({ uploadedAt: Date.now() })
+    );
     
-    if err != nil {
-        return nil, status.Error(codes.Internal, err.Error())
-    }
-    
-    return toProtoUser(result.(*User)), nil
+    return { success: true, key };
+  }
 }`,
-      description: "Resilient gRPC service with circuit breaker pattern",
+      description: "AWS S3 storage service with Redis caching for optimized performance",
     },
   },
 ];
@@ -197,78 +253,155 @@ func (s *Service) GetUser(ctx context.Context,
 export interface Skill {
   name: string;
   category: "language" | "framework" | "database" | "cloud" | "tool" | "other";
-  proficiency: number; // 1-100
-  projects: string[]; // project IDs
+  proficiency: number;
+  projects: string[];
   icon?: string;
 }
 
 export const skills: Skill[] = [
   // Languages
-  { name: "Python", category: "language", proficiency: 95, projects: ["proj-2"] },
-  { name: "TypeScript", category: "language", proficiency: 90, projects: ["proj-1"] },
-  { name: "JavaScript", category: "language", proficiency: 90, projects: ["proj-1"] },
-  { name: "Go", category: "language", proficiency: 80, projects: ["proj-3"] },
-  { name: "Java", category: "language", proficiency: 85, projects: [] },
-  { name: "SQL", category: "language", proficiency: 90, projects: ["proj-1", "proj-2"] },
+  { name: "C++", category: "language", proficiency: 90, projects: [] },
+  { name: "Java", category: "language", proficiency: 88, projects: [] },
+  { name: "JavaScript", category: "language", proficiency: 92, projects: ["proj-1", "proj-2"] },
+  { name: "Python", category: "language", proficiency: 85, projects: ["proj-1"] },
+  { name: "SQL", category: "language", proficiency: 88, projects: ["proj-1"] },
   
   // Frameworks
-  { name: "React", category: "framework", proficiency: 92, projects: ["proj-1"] },
-  { name: "Node.js", category: "framework", proficiency: 88, projects: ["proj-1"] },
-  { name: "FastAPI", category: "framework", proficiency: 85, projects: ["proj-2"] },
-  { name: "Spring Boot", category: "framework", proficiency: 80, projects: [] },
-  { name: "TensorFlow", category: "framework", proficiency: 75, projects: ["proj-2"] },
+  { name: "React Native", category: "framework", proficiency: 90, projects: ["proj-1", "proj-2"] },
+  { name: "Angular", category: "framework", proficiency: 82, projects: [] },
+  { name: "Flutter", category: "framework", proficiency: 78, projects: [] },
+  { name: "FastAPI", category: "framework", proficiency: 85, projects: ["proj-1"] },
+  { name: "Expo", category: "framework", proficiency: 88, projects: ["proj-2"] },
   
   // Databases
-  { name: "PostgreSQL", category: "database", proficiency: 90, projects: ["proj-1"] },
-  { name: "MongoDB", category: "database", proficiency: 85, projects: [] },
-  { name: "Redis", category: "database", proficiency: 88, projects: ["proj-1", "proj-2"] },
+  { name: "MySQL", category: "database", proficiency: 88, projects: ["proj-1"] },
+  { name: "MongoDB", category: "database", proficiency: 85, projects: ["proj-1"] },
   
   // Cloud
-  { name: "AWS", category: "cloud", proficiency: 85, projects: ["proj-1", "proj-2"] },
-  { name: "Kubernetes", category: "cloud", proficiency: 82, projects: ["proj-2", "proj-3"] },
-  { name: "Docker", category: "cloud", proficiency: 90, projects: ["proj-1", "proj-2", "proj-3"] },
+  { name: "AWS S3", category: "cloud", proficiency: 90, projects: ["proj-1", "proj-3"] },
+  { name: "AWS EC2", category: "cloud", proficiency: 85, projects: ["proj-3"] },
+  { name: "Vercel", category: "cloud", proficiency: 88, projects: ["proj-1", "proj-2"] },
   
   // Tools
   { name: "Git", category: "tool", proficiency: 95, projects: ["proj-1", "proj-2", "proj-3"] },
-  { name: "Kafka", category: "tool", proficiency: 80, projects: [] },
-  { name: "GraphQL", category: "tool", proficiency: 78, projects: [] },
+  { name: "Redux", category: "tool", proficiency: 85, projects: ["proj-1"] },
+  { name: "API Testing", category: "tool", proficiency: 82, projects: ["proj-1"] },
+  { name: "Unit Testing", category: "tool", proficiency: 80, projects: ["proj-1", "proj-2"] },
+  
+  // CS Fundamentals
+  { name: "DSA", category: "other", proficiency: 92, projects: [] },
+  { name: "System Design", category: "other", proficiency: 85, projects: [] },
+  { name: "OOPS", category: "other", proficiency: 90, projects: [] },
+  { name: "Networking", category: "other", proficiency: 82, projects: [] },
 ];
 
 export const achievements = [
   {
-    title: "Best Performance Award",
-    organization: "Tech Company",
-    year: "2023",
-    description: "Recognized for exceptional contributions to platform scalability",
+    title: "Published Author at ICAIES'2025",
+    organization: "ICAIES Conference",
+    year: "2025",
+    description: "Published research paper at the International Conference on AI and Emerging Systems",
   },
   {
-    title: "Hackathon Winner",
-    organization: "TechFest 2022",
-    year: "2022",
-    description: "First place in 48-hour coding challenge among 200+ participants",
+    title: "AWS Cloud Club Captain 2025",
+    organization: "SRM University",
+    year: "2025",
+    description: "First AWS Cloud Club Captain at SRM University, leading cloud computing initiatives",
   },
   {
-    title: "AWS Certified Solutions Architect",
+    title: "Branch Topper - Top 10",
+    organization: "SRM University",
+    year: "2024",
+    description: "Ranked among Top 10 branch toppers at SRM University",
+  },
+  {
+    title: "AWS Certified Cloud Practitioner",
     organization: "Amazon Web Services",
-    year: "2022",
-    description: "Professional certification for cloud architecture",
+    year: "2025",
+    description: "Professional certification validating cloud architecture knowledge",
+  },
+  {
+    title: "Computer Networking Basics",
+    organization: "CISCO Networking Academy",
+    year: "2025",
+    description: "Certification in computer networking fundamentals",
   },
 ];
 
 export const education = [
   {
-    degree: "Bachelor of Technology in Computer Science",
-    institution: "University Name",
-    year: "2020",
-    gpa: "8.5/10",
-    achievements: ["Dean's List", "Technical Club Lead"],
+    degree: "B.Tech (Computer Science and Engineering)",
+    institution: "SRM Institute of Science and Technology, Chennai",
+    year: "2023 – Present",
+    gpa: "9.7/10.0",
+    achievements: ["Branch Topper - Top 10", "AWS Cloud Club Captain"],
+  },
+  {
+    degree: "Higher Secondary (CBSE)",
+    institution: "Central School No. 1, Indore (M.P)",
+    year: "2020 – 2022",
+    gpa: "91%",
+    achievements: [],
   },
 ];
 
 export const impactMetrics = {
-  performanceGain: 40,
+  performanceGain: 45,
   costReduction: 35,
   deploymentSpeed: 70,
   codeQuality: 90,
   userEngagement: 45,
 };
+
+// For AI Chatbot context
+export const resumeContext = `
+Astha More - Computer Science Student & Software Developer
+
+SUMMARY:
+Computer Science undergraduate at SRM Institute of Science and Technology with a 9.7 CGPA. Experienced in building scalable, user-centric fintech and AI-driven applications through internships at Infosys, Cognizant, and Wipro.
+
+EDUCATION:
+- B.Tech Computer Science at SRM University, Chennai (2023-Present) - CGPA: 9.7/10
+- Higher Secondary (CBSE) from Central School No. 1, Indore - 91%
+
+SKILLS:
+- CS Fundamentals: DSA & System Design, Operating Systems, OOPS, Networking
+- Languages: C++, Java, JavaScript, Python
+- Frameworks: React Native, Angular, Flutter, FastAPI
+- Databases: AWS S3, MySQL, MongoDB
+- Tools: Git, Vercel, API Testing, Unit Testing
+
+EXPERIENCE:
+1. Infosys Springboard - Android Developer Intern (March-June 2025)
+   - Improved app responsiveness by 30% using Redux and flexbox
+   - Reduced load time by 25% (5s to 3.75s)
+
+2. Cognizant - Software Engineer Intern at IIT Roorkee (Aug-Sep 2024)
+   - Improved website performance by 35%
+   - Enhanced accessibility by 30%
+
+3. Wipro - Full-Stack Web Developer (June-July 2024)
+   - Improved user engagement by 45%
+   - Reduced load time by 25%
+
+PROJECTS:
+1. FinWise - Micro-investing & Smart Spending for Students
+   - Fintech app with automated expense tracking and personalized budgeting
+   - Built with React Native, FastAPI, AWS S3, MongoDB
+
+2. FitVerse AI - Fitness Tracker App
+   - Cross-platform React Native app with AI chatbot
+   - 82% workout adherence, 30% engagement boost with 50+ users
+
+ACHIEVEMENTS:
+- Published author at ICAIES'2025
+- First AWS Cloud Club Captain 2025 at SRM University
+- Top 10 branch topper at SRM University
+- AWS Certified Cloud Practitioner (2025)
+- CISCO Computer Networking Basics certification
+
+CONTACT:
+- Phone: +91-8982296626
+- Location: Chennai, India
+- Available for internships and full-time opportunities
+`;
