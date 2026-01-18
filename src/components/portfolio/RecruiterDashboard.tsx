@@ -202,7 +202,7 @@ export const RecruiterDashboard = () => {
                       </div>
                       <div>
                         <p className="font-medium text-foreground text-sm">{achievement.title}</p>
-                        <p className="text-xs text-muted-foreground">{achievement.organization} • {achievement.year}</p>
+                        <p className="text-xs text-muted-foreground">{achievement.subtitle}</p>
                       </div>
                     </div>
                   ))}
