@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/portfolio-data";
 import { useState } from "react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,16 +20,23 @@ export const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate submission - will be replaced with actual backend
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast.success("Message sent! I'll get back to you soon.");
-    
-    setFormData({ name: "", email: "", company: "", message: "" });
-    
-    setTimeout(() => setIsSubmitted(false), 3000);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+
+      if (error) throw error;
+
+      setIsSubmitted(true);
+      toast.success("Message sent! I'll get back to you soon.");
+      setFormData({ name: "", email: "", company: "", message: "" });
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (error: any) {
+      console.error("Error sending message:", error);
+      toast.error("Failed to send message. Please try again or email directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

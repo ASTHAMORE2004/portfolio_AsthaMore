@@ -3,12 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/portfolio-data";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const navItems = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
+  { label: "Research", href: "#research" },
+  { label: "Hire Me", href: "#freelancing" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -46,14 +48,17 @@ export const Navigation = () => {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
+            {/* Logo with Photo */}
             <motion.a
               href="#"
-              className="font-heading text-xl lg:text-2xl font-bold"
+              className="flex items-center gap-2"
               whileHover={{ scale: 1.02 }}
             >
-              <span className="gradient-text">{personalInfo.name.split(" ")[0]}</span>
-              <span className="text-muted-foreground">.</span>
+              <img 
+                src={profilePhoto} 
+                alt="Astha More" 
+                className="w-10 h-10 rounded-full object-cover border-2 border-primary/50"
+              />
             </motion.a>
 
             {/* Desktop Navigation */}

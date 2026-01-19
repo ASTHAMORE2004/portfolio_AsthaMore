@@ -6,6 +6,9 @@ import { Skills } from "@/components/portfolio/Skills";
 import { ImpactCalculator } from "@/components/portfolio/ImpactCalculator";
 import { RecruiterDashboard } from "@/components/portfolio/RecruiterDashboard";
 import { Testimonials } from "@/components/portfolio/Testimonials";
+import { Research } from "@/components/portfolio/Research";
+import { OpenSource } from "@/components/portfolio/OpenSource";
+import { Freelancing } from "@/components/portfolio/Freelancing";
 import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 import { AIChatbot } from "@/components/portfolio/AIChatbot";
@@ -21,7 +24,10 @@ const Index = () => {
       <Timeline />
       <Projects />
       <Skills />
+      <Research />
+      <OpenSource />
       <Testimonials />
+      <Freelancing />
       <ImpactCalculator />
       <Contact />
       <Footer />

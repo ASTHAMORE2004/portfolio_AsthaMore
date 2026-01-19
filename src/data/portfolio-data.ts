@@ -6,7 +6,7 @@ export const personalInfo = {
   email: "asthauday2004@gmail.com",
   linkedin: "https://www.linkedin.com/in/astha-more/",
   github: "https://github.com/ASTHAMORE2004",
-  youtube: "https://youtube.com/@asthamore",
+  youtube: "https://www.youtube.com/@AsthaMoreSDE4002",
   leetcode: "https://leetcode.com/asthamore",
   location: "Chennai, India",
   phone: "+91-8982296626",
