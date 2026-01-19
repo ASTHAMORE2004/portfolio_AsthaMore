@@ -6,58 +6,58 @@
 
 @layer base {
   :root {
-    /* Premium Obsidian Theme with Gold Accents - FAANG Ready */
-    --background: 240 10% 4%;
+    /* Premium Obsidian Theme with Blue Accents - FAANG Ready */
+    --background: 222 47% 4%;
     --foreground: 0 0% 98%;
 
-    --card: 240 10% 6%;
+    --card: 222 47% 6%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 10% 8%;
+    --popover: 222 47% 8%;
     --popover-foreground: 0 0% 98%;
 
-    /* Gold/Amber accent for premium feel */
-    --primary: 45 93% 58%;
-    --primary-foreground: 240 10% 4%;
-    --primary-glow: 45 93% 68%;
+    /* Blue accent for premium feel */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 217 91% 70%;
 
-    --secondary: 240 6% 10%;
+    --secondary: 222 30% 10%;
     --secondary-foreground: 0 0% 85%;
 
-    --muted: 240 5% 16%;
-    --muted-foreground: 240 5% 55%;
+    --muted: 222 20% 16%;
+    --muted-foreground: 222 10% 55%;
 
-    --accent: 45 93% 58%;
-    --accent-foreground: 240 10% 4%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 14%;
-    --input: 240 6% 12%;
-    --ring: 45 93% 58%;
+    --border: 222 20% 14%;
+    --input: 222 20% 12%;
+    --ring: 217 91% 60%;
 
     --radius: 1rem;
 
     /* Enhanced design tokens */
-    --gradient-gold: linear-gradient(135deg, hsl(45 93% 58%), hsl(38 92% 50%));
-    --gradient-mesh: radial-gradient(at 40% 20%, hsl(45 93% 58% / 0.08) 0px, transparent 50%),
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(200 100% 50%));
+    --gradient-mesh: radial-gradient(at 40% 20%, hsl(217 91% 60% / 0.08) 0px, transparent 50%),
                      radial-gradient(at 80% 0%, hsl(270 100% 70% / 0.05) 0px, transparent 50%),
-                     radial-gradient(at 0% 50%, hsl(200 100% 60% / 0.05) 0px, transparent 50%);
+                     radial-gradient(at 0% 50%, hsl(200 100% 60% / 0.08) 0px, transparent 50%);
     
-    --shadow-gold: 0 0 60px hsl(45 93% 58% / 0.15);
+    --shadow-primary: 0 0 60px hsl(217 91% 60% / 0.15);
     --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.3);
     --shadow-elevated: 0 20px 60px hsl(0 0% 0% / 0.4);
 
     /* Sidebar */
-    --sidebar-background: 240 10% 6%;
+    --sidebar-background: 222 47% 6%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 45 93% 58%;
-    --sidebar-primary-foreground: 240 10% 4%;
-    --sidebar-accent: 240 6% 12%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 30% 12%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 6% 14%;
-    --sidebar-ring: 45 93% 58%;
+    --sidebar-border: 222 20% 14%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -83,7 +83,7 @@
 
 @layer components {
   .gradient-text {
-    background: var(--gradient-gold);
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -158,8 +158,8 @@
     background-clip: text;
   }
 
-  .glow-gold {
-    box-shadow: var(--shadow-gold);
+  .glow-primary {
+    box-shadow: var(--shadow-primary);
   }
 
   .glow-border {
@@ -170,7 +170,7 @@
     content: '';
     position: absolute;
     inset: -1px;
-    background: var(--gradient-gold);
+    background: var(--gradient-primary);
     border-radius: inherit;
     z-index: -1;
     opacity: 0;
@@ -246,8 +246,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px hsl(45 93% 58% / 0.2); }
-  50% { box-shadow: 0 0 40px hsl(45 93% 58% / 0.4); }
+  0%, 100% { box-shadow: 0 0 20px hsl(217 91% 60% / 0.2); }
+  50% { box-shadow: 0 0 40px hsl(217 91% 60% / 0.4); }
 }
 
 @keyframes gradient-shift {

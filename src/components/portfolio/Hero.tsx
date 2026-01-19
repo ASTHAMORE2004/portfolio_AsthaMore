@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Download, MapPin, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo, stats } from "@/data/portfolio-data";
+import profilePhoto from "@/assets/profile-photo.png";
 
 export const Hero = () => {
   return (
@@ -30,17 +31,34 @@ export const Hero = () => {
       <motion.div
         animate={{ y: [0, 20, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-purple-500/5 blur-[80px]"
+        className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-cyan-500/5 blur-[80px]"
       />
 
       <div className="container relative z-10 px-4 sm:px-6 lg:px-8 pt-24 pb-12">
         <div className="max-w-5xl mx-auto">
+          {/* Profile Photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center mb-6"
+          >
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-cyan-500 blur-sm opacity-75" />
+              <img 
+                src={profilePhoto} 
+                alt="Astha More" 
+                className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-background"
+              />
+            </div>
+          </motion.div>
+
           {/* Status badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex justify-center mb-8"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex justify-center mb-6"
           >
             <div className="section-label">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -52,12 +70,12 @@ export const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center mb-6"
           >
-            <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               <span className="text-gradient-hero">Hi, I'm</span>{" "}
-              <span className="gradient-text">{personalInfo.name.split(" ")[0]}</span>
+              <span className="gradient-text">{personalInfo.name}</span>
             </h1>
           </motion.div>
 
@@ -83,7 +101,7 @@ export const Hero = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className="text-center text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
             {personalInfo.bio}
@@ -93,10 +111,10 @@ export const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <Button size="lg" className="group px-8 h-14 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_40px_hsl(45_93%_58%/0.3)] hover:shadow-[0_0_60px_hsl(45_93%_58%/0.4)]" asChild>
+            <Button size="lg" className="group px-8 h-14 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_40px_hsl(217_91%_60%/0.3)] hover:shadow-[0_0_60px_hsl(217_91%_60%/0.4)]" asChild>
               <a href="#contact">
                 <Sparkles className="w-5 h-5 mr-2" />
                 Let's Connect
