@@ -9,6 +9,7 @@ import { Testimonials } from "@/components/portfolio/Testimonials";
 import { Research } from "@/components/portfolio/Research";
 import { OpenSource } from "@/components/portfolio/OpenSource";
 import { Freelancing } from "@/components/portfolio/Freelancing";
+import { YouTubeSection } from "@/components/portfolio/YouTubeSection";
 import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 import { AIChatbot } from "@/components/portfolio/AIChatbot";
@@ -27,6 +28,7 @@ const Index = () => {
       <Research />
       <OpenSource />
       <Testimonials />
+      <YouTubeSection />
       <Freelancing />
       <ImpactCalculator />
       <Contact />
