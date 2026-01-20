@@ -1,46 +1,49 @@
 import { motion } from "framer-motion";
 import { Quote, Star, Linkedin } from "lucide-react";
+import tracyWangImage from "@/assets/tracy-wang.png";
 
 const testimonials = [
   {
     id: 1,
+    name: "Tracy Wang",
+    role: "AWS - Community Program Manager",
+    company: "Amazon Web Services",
+    image: tracyWangImage,
+    content: "Aastha joined the AWS Cloud Club program in 2025 May, she has gotten the Gold Badge after her joining. She approaches her work with clarity, responsibility, and a strong willingness to learn. She may not seek attention, but her consistency, problem-solving mindset, and ability to deliver make her someone you can rely on when things matter. With growing exposure and confidence, she shows clear potential to take on larger responsibilities.",
+    rating: 5,
+    linkedin: "https://www.linkedin.com/in/tracy-wang",
+    date: "January 20, 2026",
+    relationship: "Tracy was Astha's mentor",
+  },
+  {
+    id: 2,
     name: "Rajesh Kumar",
     role: "Tech Lead",
     company: "Infosys Springboard",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
     content: "Astha demonstrated exceptional skills during her internship. Her ability to optimize UI/UX and improve app responsiveness by 30% was impressive. She's a quick learner with great attention to detail.",
     rating: 5,
-    linkedin: "https://www.linkedin.com/in/rajesh-kumar-infosys",
+    linkedin: "https://www.linkedin.com/in/astha-more-13765722a",
   },
   {
-    id: 2,
+    id: 3,
     name: "Priya Sharma",
     role: "Project Manager",
     company: "Cognizant",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
     content: "Working with Astha at IIT Roorkee was a pleasure. She led the website development with professionalism and improved our platform's performance by 35%. Highly recommend her for any development role.",
     rating: 5,
-    linkedin: "https://www.linkedin.com/in/priya-sharma-cognizant",
+    linkedin: "https://www.linkedin.com/in/astha-more-13765722a",
   },
   {
-    id: 3,
+    id: 4,
     name: "Amit Patel",
     role: "Senior Developer",
     company: "Wipro",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
     content: "Astha's full-stack capabilities are remarkable. She improved user engagement by 45% through her UI/UX enhancements. Her problem-solving skills and dedication make her a valuable team member.",
     rating: 5,
-    linkedin: "https://www.linkedin.com/in/amit-patel-wipro",
-  },
-  {
-    id: 4,
-    name: "Dr. Sunita Verma",
-    role: "Professor",
-    company: "SRM University",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
-    content: "As the AWS Cloud Club Captain, Astha has shown exceptional leadership. Her 9.7 CGPA and research publication at ICAIES'2025 reflect her academic excellence and technical prowess.",
-    rating: 5,
-    linkedin: "https://www.linkedin.com/in/sunita-verma-srm",
+    linkedin: "https://www.linkedin.com/in/astha-more-13765722a",
   },
 ];
 
