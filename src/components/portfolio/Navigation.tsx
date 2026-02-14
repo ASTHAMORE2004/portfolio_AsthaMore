@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download, Linkedin, Github } from "lucide-react";
+import { Menu, X, Download, Linkedin, Github, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/portfolio-data";
 import profilePhoto from "@/assets/profile-photo.png";
@@ -95,6 +95,14 @@ export const Navigation = () => {
               >
                 <Github className="w-5 h-5" />
               </a>
+              <a
+                href={personalInfo.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+              >
+                <Youtube className="w-5 h-5" />
+              </a>
               <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl" asChild>
                 <a href={personalInfo.resumeUrl} download>
                   <Download className="w-4 h-4 mr-2" />
@@ -165,6 +173,14 @@ export const Navigation = () => {
                     className="p-2.5 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
                   >
                     <Github className="w-5 h-5" />
+                  </a>
+                  <a
+                    href={personalInfo.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                  >
+                    <Youtube className="w-5 h-5" />
                   </a>
                 </div>
                 <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl" asChild>
