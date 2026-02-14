@@ -197,7 +197,8 @@ const useFitnessAI = (userId: string) => {
     longDescription: "ARIA (Automated Real-time Intelligent Agent) is an AI-powered loan orchestration system that simulates a digital executive. It boosts conversions by handling sales, KYC, underwriting, investments, and sanction letters in one seamless, human-like conversation.",
     image: "",
     technologies: ["AI/ML", "NLP", "Python", "React", "FastAPI"],
-    liveUrl: "https://aria-ai-loan.vercel.app",
+    liveUrl: "https://github.com/ASTHAMORE2004/Fin-companion-AI",
+    githubUrl: "https://github.com/ASTHAMORE2004/Fin-companion-AI",
     featured: true,
     metrics: [
       { label: "Workflow", value: "End-to-End" },
