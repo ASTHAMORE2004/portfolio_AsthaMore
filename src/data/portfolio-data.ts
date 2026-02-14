@@ -119,7 +119,7 @@ export const projects: Project[] = [
     longDescription: "Designed and built a scalable fintech application for automated expense tracking and personalized budgeting, processing structured financial data through modular backend services. Implemented data-driven recommendation logic and RESTful APIs, optimizing data processing and response latency. Deployed on AWS with performance optimizations.",
     image: "",
     technologies: ["React Native", "FastAPI", "AWS S3", "MongoDB", "RESTful APIs"],
-    liveUrl: "https://github.com/ASTHAMORE2004/FinWise---Microinvesting-Smart-Spending-for-Students",
+    liveUrl: "https://finwise4002-105e3ddc2.vercel.app",
     githubUrl: "https://github.com/ASTHAMORE2004/FinWise---Microinvesting-Smart-Spending-for-Students",
     featured: true,
     metrics: [
@@ -158,7 +158,7 @@ async def create_expense(expense: Expense):
     longDescription: "Built a cross-platform React Native app with Expo and an AI chatbot. Improved rendering performance by 25% and reduced build size by 15%. Validated with 50+ users, achieving 82% workout adherence and 30% engagement boost within two weeks through UX tweaks and personalized suggestions.",
     image: "",
     technologies: ["React Native", "Expo", "AI Chatbot", "JavaScript"],
-    liveUrl: "https://github.com/ASTHAMORE2004/FitVerse",
+    liveUrl: "https://fitverse-ai.vercel.app/",
     githubUrl: "https://github.com/ASTHAMORE2004/FitVerse",
     featured: true,
     metrics: [
@@ -188,6 +188,42 @@ const useFitnessAI = (userId: string) => {
   return { recommendations, getPersonalizedWorkout };
 };`,
       description: "Custom React Native hook for AI-powered fitness recommendations",
+    },
+  },
+  {
+    id: "proj-3",
+    title: "ARIA",
+    description: "AI-Powered Loan Assistance Agent",
+    longDescription: "ARIA (Automated Real-time Intelligent Agent) is an AI-powered loan orchestration system that simulates a digital executive. It boosts conversions by handling sales, KYC, underwriting, investments, and sanction letters in one seamless, human-like conversation.",
+    image: "",
+    technologies: ["AI/ML", "NLP", "Python", "React", "FastAPI"],
+    liveUrl: "https://aria-ai-loan.vercel.app",
+    featured: true,
+    metrics: [
+      { label: "Workflow", value: "End-to-End" },
+      { label: "AI Agent", value: "Real-time" },
+      { label: "Modules", value: "5+" },
+    ],
+    codeSnippet: {
+      language: "python",
+      code: `# ARIA - AI Loan Orchestration
+class ARIAAgent:
+    def __init__(self):
+        self.modules = [
+            "sales", "kyc", "underwriting",
+            "investments", "sanctions"
+        ]
+    
+    async def process_conversation(
+        self, user_input: str, context: dict
+    ):
+        intent = await self.classify_intent(user_input)
+        module = self.route_to_module(intent)
+        response = await module.handle(
+            user_input, context
+        )
+        return response`,
+      description: "AI agent orchestrating loan workflows through natural conversation",
     },
   },
 ];
