@@ -1,34 +1,40 @@
 import { motion } from "framer-motion";
-import { Briefcase, CheckCircle, ArrowRight, Zap, Code, Smartphone, Database, Youtube, ExternalLink, Star } from "lucide-react";
+import { Briefcase, CheckCircle, ArrowRight, Zap, Cloud, CreditCard, Database, Smartphone, Youtube, ExternalLink, Star, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/portfolio-data";
 
 const services = [
   {
-    icon: Smartphone,
-    title: "Mobile App Development",
-    description: "Cross-platform mobile apps using React Native & Flutter with modern UI/UX",
-    technologies: ["React Native", "Flutter", "Expo"],
+    icon: Cloud,
+    title: "Cloud-Native Development",
+    description: "Scalable, flexible cloud-native apps on AWS & Vercel — designed to grow with your user base",
+    technologies: ["AWS S3", "Vercel", "Docker", "CI/CD"],
   },
   {
-    icon: Code,
-    title: "Full-Stack Web Development",
-    description: "Scalable web applications with modern frameworks and cloud deployment",
-    technologies: ["React", "FastAPI", "Node.js"],
+    icon: CreditCard,
+    title: "Fintech & Payment Solutions",
+    description: "Secure fintech apps with live Stripe payment gateway integration and real-time transactions",
+    technologies: ["Stripe", "FastAPI", "React Native", "MongoDB"],
   },
   {
     icon: Database,
-    title: "Backend & API Development",
-    description: "RESTful APIs, database design, and cloud infrastructure setup",
-    technologies: ["MongoDB", "MySQL", "AWS"],
+    title: "Scalable Backend Systems",
+    description: "High-performance RESTful APIs, microservices, and database architecture built for scale",
+    technologies: ["FastAPI", "Node.js", "MySQL", "AWS"],
+  },
+  {
+    icon: Smartphone,
+    title: "Cross-Platform Mobile Apps",
+    description: "Production-ready mobile apps with optimized performance and modern UI/UX",
+    technologies: ["React Native", "Flutter", "Expo"],
   },
 ];
 
 const highlights = [
-  "3+ Internships at Top Companies",
-  "10+ Projects Delivered",
+  "Live Stripe Payment Integration",
+  "Cloud-Native Architecture",
   "45% Performance Improvements",
-  "Published Researcher",
+  "Fintech & AI Specialist",
 ];
 
 export const Freelancing = () => {
@@ -73,12 +79,16 @@ export const Freelancing = () => {
                     Available for Freelance Projects
                   </div>
                   <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                    Let's Build <span className="gradient-text">Industry-Level</span> Projects Together
+                    Build <span className="gradient-text">Scalable & Cloud-Native</span> Products Together
                   </h2>
-                  <p className="text-lg text-muted-foreground mb-6">
-                    I'm open for freelancing opportunities! Whether you need a mobile app, web platform, 
-                    or AI-powered solution, I bring production-ready code and startup-tested experience.
+                  <p className="text-lg text-muted-foreground mb-4">
+                    Specializing in fintech solutions with live payment gateways (Stripe), scalable backend systems, 
+                    and cloud-native architectures. From automated expense tracking to AI-powered loan orchestration.
                   </p>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/10 text-cyan-400 text-sm font-medium mb-6 border border-cyan-500/20">
+                    <Rocket className="w-4 h-4" />
+                    Upcoming projects built on cloud-first architecture — more scalable, flexible & tailored to user needs
+                  </div>
                   <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
                     {highlights.map((highlight) => (
                       <span key={highlight} className="inline-flex items-center gap-2 text-sm text-foreground/80">
@@ -129,11 +139,11 @@ export const Freelancing = () => {
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Services I Offer</h3>
-            <p className="text-muted-foreground">End-to-end development with production-quality code</p>
+            <h3 className="font-heading text-2xl font-bold text-foreground mb-2">What I Build</h3>
+            <p className="text-muted-foreground">Cloud-native, scalable solutions with production-quality code</p>
           </motion.div>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
