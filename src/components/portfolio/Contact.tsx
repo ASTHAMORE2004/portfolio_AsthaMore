@@ -134,10 +134,19 @@ export const Contact = () => {
                   <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
                   <span className="font-medium text-foreground">Available for opportunities</span>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground mb-4">
                   I'm currently looking for new opportunities and exciting projects. 
                   Feel free to reach out if you think we could work together!
                 </p>
+                <a
+                  href={`${personalInfo.linkedin}?msgOverlay=true`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors w-full justify-center"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  Message on LinkedIn
+                </a>
               </div>
             </motion.div>
 
