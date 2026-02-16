@@ -1,30 +1,57 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Download, MapPin, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo, stats } from "@/data/portfolio-data";
 import profilePhoto from "@/assets/profile-photo.png";
 
+const roles = [
+  "Full-Stack Developer",
+  "Software Engineer",
+  "Cloud Enthusiast",
+  "AI/ML Explorer",
+  "React Native Developer",
+];
+
+const greetings = [
+  "Hi, I'm",
+  "Hey, I'm",
+  "Hello, I'm",
+];
+
 export const Hero = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [greetIndex, setGreetIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGreetIndex((prev) => (prev + 1) % greetings.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Premium mesh gradient background */}
+      {/* Background */}
       <div className="absolute inset-0 mesh-gradient" />
-      
-      {/* Subtle grid pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `radial-gradient(hsl(var(--foreground)) 1px, transparent 1px)`,
-          backgroundSize: '32px 32px'
+          backgroundSize: "32px 32px",
         }}
       />
 
-      {/* Floating accent orbs */}
+      {/* Floating orbs */}
       <motion.div
-        animate={{ 
-          y: [0, -30, 0],
-          scale: [1, 1.1, 1],
-        }}
+        animate={{ y: [0, -30, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[100px]"
       />
@@ -45,9 +72,9 @@ export const Hero = () => {
           >
             <div className="relative">
               <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-cyan-500 blur-sm opacity-75" />
-              <img 
-                src={profilePhoto} 
-                alt="Astha More" 
+              <img
+                src={profilePhoto}
+                alt="Astha More"
                 className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-background"
               />
             </div>
@@ -66,7 +93,7 @@ export const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Main heading */}
+          {/* Main heading with animated greeting */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,22 +101,44 @@ export const Hero = () => {
             className="text-center mb-6"
           >
             <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-              <span className="text-gradient-hero">Hi, I'm</span>{" "}
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={greetIndex}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4 }}
+                  className="text-gradient-hero inline-block"
+                >
+                  {greetings[greetIndex]}
+                </motion.span>
+              </AnimatePresence>{" "}
               <span className="gradient-text">{personalInfo.name}</span>
             </h1>
           </motion.div>
 
-          {/* Role & Location */}
+          {/* Animated role */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center mb-8"
           >
-            <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground font-medium mb-3">
-              {personalInfo.title}
-            </p>
-            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+            <div className="h-10 sm:h-12 flex items-center justify-center overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={roleIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="text-xl sm:text-2xl md:text-3xl text-muted-foreground font-medium"
+                >
+                  {roles[roleIndex]}
+                </motion.p>
+              </AnimatePresence>
+            </div>
+            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-3">
               <MapPin className="w-4 h-4" />
               <span>{personalInfo.location}</span>
               <span className="mx-2">•</span>
@@ -114,14 +163,23 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <Button size="lg" className="group px-8 h-14 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_40px_hsl(217_91%_60%/0.3)] hover:shadow-[0_0_60px_hsl(217_91%_60%/0.4)]" asChild>
+            <Button
+              size="lg"
+              className="group px-8 h-14 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_40px_hsl(217_91%_60%/0.3)] hover:shadow-[0_0_60px_hsl(217_91%_60%/0.4)]"
+              asChild
+            >
               <a href="#contact">
                 <Sparkles className="w-5 h-5 mr-2" />
                 Let's Connect
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="px-8 h-14 text-base font-semibold border-border hover:border-primary/50 hover:bg-primary/5" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="px-8 h-14 text-base font-semibold border-border hover:border-primary/50 hover:bg-primary/5"
+              asChild
+            >
               <a href={personalInfo.resumeUrl} download>
                 <Download className="w-5 h-5 mr-2" />
                 Download Resume
@@ -129,7 +187,7 @@ export const Hero = () => {
             </Button>
           </motion.div>
 
-          {/* Stats Bento Grid */}
+          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -146,10 +204,13 @@ export const Hero = () => {
               >
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-2xl">{stat.icon}</span>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider">
+                    {stat.label}
+                  </span>
                 </div>
                 <div className="font-heading text-4xl md:text-5xl font-bold gradient-text">
-                  {stat.value}{stat.suffix}
+                  {stat.value}
+                  {stat.suffix}
                 </div>
               </motion.div>
             ))}
