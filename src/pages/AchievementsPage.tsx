@@ -1,17 +1,17 @@
 import { Navigation } from "@/components/portfolio/Navigation";
-import { Hero } from "@/components/portfolio/Hero";
 import { Footer } from "@/components/portfolio/Footer";
-import { AIChatbot } from "@/components/portfolio/AIChatbot";
+import { AchievementCards } from "@/components/portfolio/AchievementCards";
 
-const Index = () => {
+const AchievementsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <Hero />
+      <div className="pt-16">
+        <AchievementCards />
+      </div>
       <Footer />
-      <AIChatbot />
     </div>
   );
 };
 
-export default Index;
+export default AchievementsPage;

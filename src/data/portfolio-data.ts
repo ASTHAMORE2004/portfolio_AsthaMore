@@ -16,10 +16,10 @@ export const personalInfo = {
 };
 
 export const stats = [
-  { label: "CGPA", value: 9.7, suffix: "", icon: "🎓" },
-  { label: "Internships", value: 3, suffix: "+", icon: "💼" },
-  { label: "Projects", value: 10, suffix: "+", icon: "🚀" },
-  { label: "Performance Boost", value: 45, suffix: "%", icon: "📈" },
+  { label: "CGPA", value: 9.7, suffix: "" },
+  { label: "Internships", value: 3, suffix: "+" },
+  { label: "Projects", value: 10, suffix: "+" },
+  { label: "Performance Boost", value: 45, suffix: "%" },
 ];
 
 export interface Experience {
@@ -110,7 +110,6 @@ export interface Project {
   };
 }
 
-// ONLY projects from resume
 export const projects: Project[] = [
   {
     id: "proj-1",
@@ -229,38 +228,62 @@ class ARIAAgent:
   },
 ];
 
-// Tech stack from resume - organized by category
+// Tech stack with real logo URLs from devicon CDN
+export interface TechSkill {
+  name: string;
+  logo: string;
+}
+
 export interface TechCategory {
   name: string;
-  icon: string;
-  skills: string[];
+  skills: TechSkill[];
 }
 
 export const techStack: TechCategory[] = [
   {
     name: "CS Fundamentals",
-    icon: "🧠",
-    skills: ["DSA & System Design", "Operating Systems", "OOPS", "Networking"],
+    skills: [
+      { name: "DSA & System Design", logo: "" },
+      { name: "Operating Systems", logo: "" },
+      { name: "OOPS", logo: "" },
+      { name: "Networking", logo: "" },
+    ],
   },
   {
     name: "Languages",
-    icon: "💻",
-    skills: ["C++", "Java", "JavaScript", "Python"],
+    skills: [
+      { name: "C++", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+      { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+      { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    ],
   },
   {
     name: "Frameworks",
-    icon: "⚡",
-    skills: ["React Native", "Angular", "Flutter", "FastAPI"],
+    skills: [
+      { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Angular", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
+      { name: "Flutter", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+      { name: "FastAPI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+    ],
   },
   {
     name: "Database & Cloud",
-    icon: "☁️",
-    skills: ["AWS S3", "MySQL", "MongoDB", "Vercel"],
+    skills: [
+      { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
+      { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "Vercel", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" },
+    ],
   },
   {
     name: "Tools",
-    icon: "🛠️",
-    skills: ["Git", "API Testing", "Unit Testing", "Redux"],
+    skills: [
+      { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "Redux", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+      { name: "VS Code", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+    ],
   },
 ];
 
@@ -268,31 +291,26 @@ export const achievements = [
   {
     title: "Published Author",
     subtitle: "ICAIES'2025",
-    icon: "📄",
     description: "Published research paper at International Conference on AI and Emerging Systems",
   },
   {
     title: "AWS Cloud Club Captain",
     subtitle: "SRM University 2025",
-    icon: "☁️",
     description: "First AWS Cloud Club Captain at SRM University",
   },
   {
     title: "Branch Topper",
     subtitle: "Top 10 at SRM",
-    icon: "🏆",
     description: "Ranked among Top 10 branch toppers",
   },
   {
     title: "AWS Certified",
     subtitle: "Cloud Practitioner",
-    icon: "🎖️",
     description: "Professional cloud architecture certification",
   },
   {
     title: "CISCO Certified",
     subtitle: "Networking Basics",
-    icon: "🌐",
     description: "Computer networking fundamentals certification",
   },
 ];
@@ -324,7 +342,6 @@ export const impactMetrics = {
   workoutAdherence: 82,
 };
 
-// For AI Chatbot context
 export const resumeContext = `
 Astha More - Computer Science Student & Software Developer
 
@@ -363,6 +380,10 @@ PROJECTS:
 2. FitVerse AI - Fitness Tracker App
    - Cross-platform React Native app with AI chatbot
    - 82% workout adherence, 30% engagement boost with 50+ users
+
+3. ARIA - AI-Powered Loan Assistance Agent
+   - AI-powered loan orchestration system
+   - End-to-end workflow automation
 
 ACHIEVEMENTS:
 - Published author at ICAIES'2025
