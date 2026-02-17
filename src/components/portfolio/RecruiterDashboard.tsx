@@ -1,130 +1,88 @@
 import { motion } from "framer-motion";
-import { Download, Play, ExternalLink, FileText, Award, GraduationCap, Briefcase, Clock, Mail } from "lucide-react";
+import { Download, Play, ExternalLink, FileText, Award, GraduationCap, Briefcase, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo, experiences, projects, achievements, education, stats } from "@/data/portfolio-data";
 import { AnimatedCounter } from "./AnimatedCounter";
+import { Link } from "react-router-dom";
 
 export const RecruiterDashboard = () => {
   return (
-    <section id="recruiter" className="py-24">
+    <section className="py-20">
       <div className="container px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-            <Briefcase className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">For Recruiters</span>
-          </div>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          <span className="section-label mb-4 inline-flex">
+            <Briefcase className="w-3 h-3" />
+            For Recruiters
+          </span>
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold mt-4 mb-3">
             Quick <span className="gradient-text">Overview</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-xl mx-auto">
             Everything you need to know at a glance
           </p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Quick Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"
-          >
-            {stats.map((stat, index) => (
-              <div key={stat.label} className="card-elevated p-4 rounded-xl text-center">
-                <div className="text-3xl font-bold gradient-text mb-1">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+            {stats.map((stat) => (
+              <div key={stat.label} className="card-clean p-4 text-center">
+                <div className="text-2xl font-heading font-bold text-primary">
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
               </div>
             ))}
-          </motion.div>
+          </div>
 
-          <div className="grid lg:grid-cols-3 gap-6">
-            {/* Left Column - Profile & Downloads */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
-              {/* Profile Card */}
-              <div className="card-elevated p-6 rounded-2xl text-center">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-cyan-400 mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-primary-foreground">
+          <div className="grid lg:grid-cols-3 gap-4">
+            {/* Profile */}
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-4">
+              <div className="card-clean p-5 text-center">
+                <div className="w-16 h-16 rounded-full bg-primary/10 mx-auto mb-3 flex items-center justify-center text-xl font-heading font-bold text-primary">
                   {personalInfo.name.split(' ').map(n => n[0]).join('')}
                 </div>
-                <h3 className="font-heading text-xl font-bold text-foreground mb-1">
-                  {personalInfo.name}
-                </h3>
-                <p className="text-primary font-medium mb-2">{personalInfo.title}</p>
-                <p className="text-sm text-muted-foreground mb-4">{personalInfo.location}</p>
-                
+                <h3 className="font-heading font-bold text-foreground">{personalInfo.name}</h3>
+                <p className="text-primary text-sm mb-1">{personalInfo.title}</p>
+                <p className="text-xs text-muted-foreground mb-4">{personalInfo.location}</p>
                 <div className="space-y-2">
-                  <Button variant="hero" size="lg" className="w-full" asChild>
+                  <Button size="sm" className="w-full" asChild>
                     <a href={personalInfo.resumeUrl} download>
-                      <Download className="w-4 h-4" />
-                      Download Resume
+                      <Download className="w-3.5 h-3.5 mr-1.5" />Download Resume
                     </a>
                   </Button>
-                  <Button variant="outline" size="lg" className="w-full" asChild>
-                    <a href={`mailto:${personalInfo.email}`}>
-                      <Mail className="w-4 h-4" />
-                      Contact Me
-                    </a>
+                  <Button size="sm" variant="outline" className="w-full" asChild>
+                    <Link to="/contact">
+                      <Mail className="w-3.5 h-3.5 mr-1.5" />Contact Me
+                    </Link>
                   </Button>
-                </div>
-              </div>
-
-              {/* Intro Video (placeholder) */}
-              <div className="card-elevated p-6 rounded-2xl">
-                <h4 className="font-heading font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <Play className="w-5 h-5 text-primary" />
-                  Introduction Video
-                </h4>
-                <div className="aspect-video bg-secondary rounded-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-3">
-                      <Play className="w-8 h-8 text-primary ml-1" />
-                    </div>
-                    <p className="text-sm text-muted-foreground">Video coming soon</p>
-                  </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Middle Column - Experience Summary */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
-              {/* Experience Highlights */}
-              <div className="card-elevated p-6 rounded-2xl">
-                <h4 className="font-heading font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <Briefcase className="w-5 h-5 text-primary" />
-                  Experience Highlights
+            {/* Experience */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="space-y-4">
+              <div className="card-clean p-5">
+                <h4 className="font-heading font-semibold text-foreground mb-3 flex items-center gap-2 text-sm">
+                  <Briefcase className="w-4 h-4 text-primary" />Experience
                 </h4>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {experiences.slice(0, 2).map((exp) => (
                     <div key={exp.id} className="p-3 rounded-lg bg-secondary/50">
-                      <div className="flex items-center justify-between mb-1">
+                      <div className="flex justify-between text-sm mb-0.5">
                         <span className="font-medium text-foreground">{exp.role}</span>
-                        <span className="text-xs text-muted-foreground">{exp.duration}</span>
+                        <span className="text-[10px] text-muted-foreground">{exp.duration}</span>
                       </div>
-                      <p className="text-sm text-primary mb-2">{exp.company}</p>
-                      <ul className="text-xs text-muted-foreground space-y-1">
-                        {exp.achievements.slice(0, 2).map((achievement, i) => (
-                          <li key={i} className="flex items-start gap-1">
-                            <span className="text-primary">•</span>
-                            {achievement}
-                          </li>
+                      <p className="text-xs text-primary mb-1">{exp.company}</p>
+                      <ul className="text-[11px] text-muted-foreground space-y-0.5">
+                        {exp.achievements.slice(0, 2).map((a, i) => (
+                          <li key={i} className="flex items-start gap-1"><span className="text-primary">•</span>{a}</li>
                         ))}
                       </ul>
                     </div>
@@ -132,55 +90,43 @@ export const RecruiterDashboard = () => {
                 </div>
               </div>
 
-              {/* Education */}
-              <div className="card-elevated p-6 rounded-2xl">
-                <h4 className="font-heading font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <GraduationCap className="w-5 h-5 text-primary" />
-                  Education
+              <div className="card-clean p-5">
+                <h4 className="font-heading font-semibold text-foreground mb-3 flex items-center gap-2 text-sm">
+                  <GraduationCap className="w-4 h-4 text-primary" />Education
                 </h4>
                 {education.map((edu, i) => (
                   <div key={i} className="p-3 rounded-lg bg-secondary/50">
-                    <p className="font-medium text-foreground">{edu.degree}</p>
-                    <p className="text-sm text-primary">{edu.institution}</p>
-                    <div className="flex items-center justify-between mt-2 text-xs text-muted-foreground">
-                      <span>GPA: {edu.gpa}</span>
-                      <span>{edu.year}</span>
+                    <p className="font-medium text-sm text-foreground">{edu.degree}</p>
+                    <p className="text-xs text-primary">{edu.institution}</p>
+                    <div className="flex justify-between mt-1 text-[11px] text-muted-foreground">
+                      <span>GPA: {edu.gpa}</span><span>{edu.year}</span>
                     </div>
                   </div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Right Column - Projects & Achievements */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
-              {/* Top Projects */}
-              <div className="card-elevated p-6 rounded-2xl">
-                <h4 className="font-heading font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-primary" />
-                  Top Projects
+            {/* Projects & Achievements */}
+            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-4">
+              <div className="card-clean p-5">
+                <h4 className="font-heading font-semibold text-foreground mb-3 flex items-center gap-2 text-sm">
+                  <FileText className="w-4 h-4 text-primary" />Top Projects
                 </h4>
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {projects.slice(0, 3).map((project) => (
-                    <div key={project.id} className="p-3 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors">
-                      <div className="flex items-start justify-between mb-1">
-                        <span className="font-medium text-foreground text-sm">{project.title}</span>
+                    <div key={project.id} className="p-3 rounded-lg bg-secondary/50">
+                      <div className="flex justify-between mb-0.5">
+                        <span className="font-medium text-sm text-foreground">{project.title}</span>
                         {project.githubUrl && (
                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
-                            <ExternalLink className="w-4 h-4" />
+                            <ExternalLink className="w-3.5 h-3.5" />
                           </a>
                         )}
                       </div>
-                      <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{project.description}</p>
+                      <p className="text-[11px] text-muted-foreground mb-1.5 line-clamp-2">{project.description}</p>
                       <div className="flex flex-wrap gap-1">
                         {project.technologies.slice(0, 3).map((tech) => (
-                          <span key={tech} className="px-2 py-0.5 text-xs rounded bg-primary/10 text-primary">
-                            {tech}
-                          </span>
+                          <span key={tech} className="px-1.5 py-0.5 text-[10px] rounded bg-primary/8 text-primary">{tech}</span>
                         ))}
                       </div>
                     </div>
@@ -188,21 +134,17 @@ export const RecruiterDashboard = () => {
                 </div>
               </div>
 
-              {/* Achievements */}
-              <div className="card-elevated p-6 rounded-2xl">
-                <h4 className="font-heading font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <Award className="w-5 h-5 text-primary" />
-                  Achievements
+              <div className="card-clean p-5">
+                <h4 className="font-heading font-semibold text-foreground mb-3 flex items-center gap-2 text-sm">
+                  <Award className="w-4 h-4 text-primary" />Achievements
                 </h4>
-                <div className="space-y-3">
-                  {achievements.map((achievement, i) => (
-                    <div key={i} className="flex items-start gap-3 p-2">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Award className="w-4 h-4 text-primary" />
-                      </div>
+                <div className="space-y-2">
+                  {achievements.slice(0, 4).map((a, i) => (
+                    <div key={i} className="flex items-start gap-2 p-1.5">
+                      <Award className="w-3.5 h-3.5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="font-medium text-foreground text-sm">{achievement.title}</p>
-                        <p className="text-xs text-muted-foreground">{achievement.subtitle}</p>
+                        <p className="font-medium text-xs text-foreground">{a.title}</p>
+                        <p className="text-[10px] text-muted-foreground">{a.subtitle}</p>
                       </div>
                     </div>
                   ))}

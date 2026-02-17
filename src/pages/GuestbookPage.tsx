@@ -1,17 +1,17 @@
 import { Navigation } from "@/components/portfolio/Navigation";
-import { Hero } from "@/components/portfolio/Hero";
 import { Footer } from "@/components/portfolio/Footer";
-import { AIChatbot } from "@/components/portfolio/AIChatbot";
+import { Guestbook } from "@/components/portfolio/Guestbook";
 
-const Index = () => {
+const GuestbookPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <Hero />
+      <div className="pt-16">
+        <Guestbook />
+      </div>
       <Footer />
-      <AIChatbot />
     </div>
   );
 };
 
-export default Index;
+export default GuestbookPage;
