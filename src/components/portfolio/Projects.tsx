@@ -26,7 +26,7 @@ export const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="space-y-6 max-w-5xl mx-auto">
+        <div className="space-y-8 max-w-5xl mx-auto">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -36,53 +36,68 @@ export const Projects = () => {
               transition={{ duration: 0.4, delay: index * 0.08 }}
               className="card-clean overflow-hidden"
             >
-              <div className="grid lg:grid-cols-5 gap-0">
-                <div className="lg:col-span-3 p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-heading text-xl font-bold text-foreground">{project.title}</h3>
-                        {project.featured && (
-                          <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-primary/8 text-primary border border-primary/15">Featured</span>
-                        )}
-                      </div>
-                      <p className="text-sm text-primary font-medium">{project.description}</p>
-                    </div>
-                    <div className="flex gap-1.5">
-                      {project.githubUrl && (
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
-                          className="p-2 rounded-lg bg-secondary hover:bg-primary/8 hover:text-primary transition-all">
-                          <Github className="w-4 h-4" />
-                        </a>
-                      )}
-                      {project.liveUrl && (
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"
-                          className="p-2 rounded-lg bg-secondary hover:bg-primary/8 hover:text-primary transition-all">
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
+              <div className="p-6 sm:p-8">
+                {/* Header */}
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="font-heading text-xl font-bold text-foreground">{project.title}</h3>
+                      {project.featured && (
+                        <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-primary/8 text-primary border border-primary/15">Featured</span>
                       )}
                     </div>
+                    <p className="text-sm text-primary font-medium">{project.description}</p>
                   </div>
-
-                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{project.longDescription}</p>
-
-                  <div className="flex flex-wrap gap-4 mb-4">
-                    {project.metrics.map((m, i) => (
-                      <div key={i} className="text-center">
-                        <div className="text-lg font-heading font-bold text-primary">{m.value}</div>
-                        <div className="text-[10px] text-muted-foreground uppercase tracking-wider">{m.label}</div>
-                      </div>
-                    ))}
+                  <div className="flex gap-1.5">
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
+                        className="p-2 rounded-lg bg-secondary hover:bg-primary/8 hover:text-primary transition-all">
+                        <Github className="w-4 h-4" />
+                      </a>
+                    )}
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"
+                        className="p-2 rounded-lg bg-secondary hover:bg-primary/8 hover:text-primary transition-all">
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
+                </div>
 
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="px-2.5 py-1 text-xs rounded-lg bg-secondary text-muted-foreground border border-border">
-                        {tech}
-                      </span>
-                    ))}
+                {/* Case Study: Problem → Solution → Impact */}
+                <div className="grid sm:grid-cols-3 gap-4 mb-5">
+                  <div className="p-3 rounded-xl bg-secondary/50 border border-border">
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Problem</p>
+                    <p className="text-sm text-foreground/80 leading-relaxed">{project.problem || "Complex workflow requiring scalable, efficient solution"}</p>
                   </div>
+                  <div className="p-3 rounded-xl bg-secondary/50 border border-border">
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Solution</p>
+                    <p className="text-sm text-foreground/80 leading-relaxed">{project.solution || project.description}</p>
+                  </div>
+                  <div className="p-3 rounded-xl bg-primary/5 border border-primary/10">
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-primary mb-1.5">Impact</p>
+                    <div className="space-y-1">
+                      {project.metrics.map((m, i) => (
+                        <div key={i} className="flex items-center justify-between text-sm">
+                          <span className="text-muted-foreground">{m.label}</span>
+                          <span className="font-semibold text-primary">{m.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
 
+                {/* Tech stack */}
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="px-2.5 py-1 text-xs rounded-lg bg-secondary text-muted-foreground border border-border">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Code toggle */}
+                <div className="flex items-center gap-3">
                   {project.codeSnippet && (
                     <Button variant="outline" size="sm"
                       onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}>
@@ -90,20 +105,26 @@ export const Projects = () => {
                       {selectedProject === project.id ? "Hide Code" : "View Code"}
                     </Button>
                   )}
-                </div>
-
-                <div className="lg:col-span-2 relative bg-secondary/30 border-l border-border min-h-[280px]">
-                  {selectedProject === project.id && project.codeSnippet ? (
-                    <CodeSnippet code={project.codeSnippet.code} language={project.codeSnippet.language} description={project.codeSnippet.description} />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center p-6">
-                      <div className="text-center">
-                        <Code className="w-8 h-8 text-muted-foreground/30 mx-auto mb-2" />
-                        <p className="text-xs text-muted-foreground">Click "View Code" to see implementation</p>
-                      </div>
-                    </div>
+                  {project.liveUrl && (
+                    <Button variant="ghost" size="sm" asChild>
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        Live Demo <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
+                      </a>
+                    </Button>
                   )}
                 </div>
+
+                {/* Code snippet expand */}
+                {selectedProject === project.id && project.codeSnippet && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mt-4 rounded-xl overflow-hidden border border-border"
+                  >
+                    <CodeSnippet code={project.codeSnippet.code} language={project.codeSnippet.language} description={project.codeSnippet.description} />
+                  </motion.div>
+                )}
               </div>
             </motion.div>
           ))}

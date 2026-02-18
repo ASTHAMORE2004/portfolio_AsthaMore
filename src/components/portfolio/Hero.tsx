@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Download, MapPin, GraduationCap, Briefcase, FolderOpen, TrendingUp } from "lucide-react";
+import { ArrowRight, Download, MapPin, GraduationCap, Briefcase, FolderOpen, TrendingUp, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo, stats } from "@/data/portfolio-data";
 import { Link } from "react-router-dom";
@@ -12,6 +12,13 @@ const roles = [
   "Cloud Enthusiast",
   "AI/ML Explorer",
   "React Native Developer",
+];
+
+const highlights = [
+  "3+ production internships",
+  "Published researcher (ICAIES'25)",
+  "AWS Cloud Club Captain",
+  "9.7 CGPA — Branch Topper",
 ];
 
 const statIcons = [GraduationCap, Briefcase, FolderOpen, TrendingUp];
@@ -52,7 +59,7 @@ export const Hero = () => {
             className="flex justify-center mb-6"
           >
             <div className="section-label">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               <span>Open to Opportunities</span>
             </div>
           </motion.div>
@@ -96,15 +103,30 @@ export const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Bio */}
+          {/* Professional Summary */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed"
+            className="text-muted-foreground max-w-xl mx-auto mb-6 leading-relaxed"
           >
             {personalInfo.bio}
           </motion.p>
+
+          {/* Key Highlights */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.33 }}
+            className="flex flex-wrap justify-center gap-x-4 gap-y-2 mb-8"
+          >
+            {highlights.map((item) => (
+              <div key={item} className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                <CheckCircle className="w-3.5 h-3.5 text-primary" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </motion.div>
 
           {/* CTAs */}
           <motion.div
@@ -114,8 +136,8 @@ export const Hero = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16"
           >
             <Button size="lg" className="px-6" asChild>
-              <Link to="/contact">
-                Let's Connect
+              <Link to="/projects">
+                View My Work
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
