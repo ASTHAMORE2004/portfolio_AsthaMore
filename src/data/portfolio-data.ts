@@ -97,6 +97,8 @@ export interface Project {
   title: string;
   description: string;
   longDescription: string;
+  problem?: string;
+  solution?: string;
   image: string;
   technologies: string[];
   liveUrl?: string;
@@ -115,7 +117,9 @@ export const projects: Project[] = [
     id: "proj-1",
     title: "FinWise",
     description: "Micro-investing & Smart Spending for Students",
-    longDescription: "Designed and built a scalable fintech application for automated expense tracking and personalized budgeting, processing structured financial data through modular backend services. Implemented data-driven recommendation logic and RESTful APIs, optimizing data processing and response latency. Deployed on AWS with performance optimizations.",
+    longDescription: "Designed and built a scalable fintech application for automated expense tracking and personalized budgeting, processing structured financial data through modular backend services.",
+    problem: "Students lack accessible tools for micro-investing and smart budgeting tailored to their spending patterns.",
+    solution: "Built a modular fintech app with real-time expense tracking, personalized budgets, and data-driven recommendations via FastAPI + AWS.",
     image: "",
     technologies: ["React Native", "FastAPI", "AWS S3", "MongoDB", "RESTful APIs"],
     liveUrl: "https://finwise4002-105e3ddc2.vercel.app",
@@ -154,7 +158,9 @@ async def create_expense(expense: Expense):
     id: "proj-2",
     title: "FitVerse AI",
     description: "Fitness Tracker App with AI Chatbot",
-    longDescription: "Built a cross-platform React Native app with Expo and an AI chatbot. Improved rendering performance by 25% and reduced build size by 15%. Validated with 50+ users, achieving 82% workout adherence and 30% engagement boost within two weeks through UX tweaks and personalized suggestions.",
+    longDescription: "Built a cross-platform React Native app with Expo and an AI chatbot. Validated with 50+ users, achieving 82% workout adherence and 30% engagement boost.",
+    problem: "Fitness apps are generic — users abandon workouts within days due to lack of personalization.",
+    solution: "AI-powered chatbot that adapts workout plans to user goals, with performance-optimized React Native UI.",
     image: "",
     technologies: ["React Native", "Expo", "AI Chatbot", "JavaScript"],
     liveUrl: "https://fitverse-ai.vercel.app/",
@@ -193,7 +199,9 @@ const useFitnessAI = (userId: string) => {
     id: "proj-3",
     title: "ARIA",
     description: "AI-Powered Loan Assistance Agent",
-    longDescription: "ARIA (Automated Real-time Intelligent Agent) is an AI-powered loan orchestration system that simulates a digital executive. It boosts conversions by handling sales, KYC, underwriting, investments, and sanction letters in one seamless, human-like conversation.",
+    longDescription: "ARIA is an AI-powered loan orchestration system that simulates a digital executive, handling end-to-end loan workflows.",
+    problem: "Loan processing involves fragmented steps — sales, KYC, underwriting — causing delays and drop-offs.",
+    solution: "Single AI agent that handles all 5 workflow modules through natural conversation, automating the full pipeline.",
     image: "",
     technologies: ["AI/ML", "NLP", "Python", "React", "FastAPI"],
     liveUrl: "https://ey-techathon-project-git-main-astha-mores-projects.vercel.app",

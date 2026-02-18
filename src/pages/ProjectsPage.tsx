@@ -3,18 +3,21 @@ import { Footer } from "@/components/portfolio/Footer";
 import { Projects } from "@/components/portfolio/Projects";
 import { ProjectAnalytics } from "@/components/portfolio/ProjectAnalytics";
 import { Research } from "@/components/portfolio/Research";
+import { PageTransition } from "@/components/portfolio/PageTransition";
 
 const ProjectsPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <div className="pt-16">
-        <Projects />
-        <ProjectAnalytics />
-        <Research />
+    <PageTransition>
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <div className="pt-16">
+          <Projects />
+          <ProjectAnalytics />
+          <Research />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </PageTransition>
   );
 };
 
