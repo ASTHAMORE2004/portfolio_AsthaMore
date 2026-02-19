@@ -18,7 +18,7 @@ const highlights = [
   "3+ production internships",
   "Published researcher (ICAIES'25)",
   "AWS Cloud Club Captain",
-  "9.7 CGPA — Branch Topper",
+  "9.7 CGPA — Academic Scholar",
 ];
 
 const statIcons = [GraduationCap, Briefcase, FolderOpen, TrendingUp];
@@ -44,11 +44,21 @@ export const Hero = () => {
             transition={{ duration: 0.5 }}
             className="flex justify-center mb-6"
           >
-            <img
-              src={profilePhoto}
-              alt="Astha More"
-              className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-border shadow-lg"
-            />
+            <div className="relative">
+              {/* Outer ring */}
+              <div className="absolute -inset-2 rounded-full border-2 border-primary/30 animate-[pulse_3s_ease-in-out_infinite]" />
+              {/* Middle ring */}
+              <div className="absolute -inset-1 rounded-full border border-primary/50" />
+              <img
+                src={profilePhoto}
+                alt="Astha More"
+                className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-primary/40 shadow-xl shadow-primary/10 relative z-10"
+              />
+              {/* Name badge */}
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 z-20 px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-semibold whitespace-nowrap shadow-lg">
+                Astha More
+              </div>
+            </div>
           </motion.div>
 
           {/* Status badge */}
