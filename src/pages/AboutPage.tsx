@@ -1,4 +1,3 @@
-import { Navigation } from "@/components/portfolio/Navigation";
 import { Footer } from "@/components/portfolio/Footer";
 import { RecruiterDashboard } from "@/components/portfolio/RecruiterDashboard";
 import { Timeline } from "@/components/portfolio/Timeline";
@@ -9,12 +8,9 @@ const AboutPage = () => {
   return (
     <PageTransition>
       <div className="min-h-screen bg-background">
-        <Navigation />
-        <div className="pt-16">
-          <RecruiterDashboard />
-          <Timeline />
-          <Testimonials />
-        </div>
+        <RecruiterDashboard />
+        <Timeline />
+        <Testimonials />
         <Footer />
       </div>
     </PageTransition>
