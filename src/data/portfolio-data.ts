@@ -307,9 +307,9 @@ export const achievements = [
     description: "First AWS Cloud Club Captain at SRM University",
   },
   {
-    title: "Branch Topper",
+    title: "Academic Scholar",
     subtitle: "Top 10 at SRM",
-    description: "Ranked among Top 10 branch toppers",
+    description: "Ranked among Top 10 academic scholars",
   },
   {
     title: "AWS Certified",
@@ -329,8 +329,8 @@ export const education = [
     institution: "SRM Institute of Science and Technology",
     location: "Chennai",
     year: "2023 – Present",
-    gpa: "9.7/10.0",
-    highlights: ["Branch Topper - Top 10", "AWS Cloud Club Captain"],
+    gpa: "9.7",
+    highlights: ["Academic Scholar - Top 10", "AWS Cloud Club Captain"],
   },
   {
     degree: "Higher Secondary (CBSE)",
@@ -396,7 +396,7 @@ PROJECTS:
 ACHIEVEMENTS:
 - Published author at ICAIES'2025
 - First AWS Cloud Club Captain 2025 at SRM University
-- Top 10 branch topper at SRM University
+- Top 10 academic scholar at SRM University
 - AWS Certified Cloud Practitioner (2025)
 - CISCO Computer Networking Basics certification
 

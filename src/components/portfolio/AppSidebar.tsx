@@ -43,7 +43,7 @@ export function AppSidebar() {
         {!collapsed && (
           <div className="overflow-hidden">
             <span className="font-heading font-bold text-sm text-foreground block truncate">
-              Astha<span className="text-primary">.</span>
+              Astha More
             </span>
             <span className="text-[10px] text-muted-foreground truncate block">Software Engineer</span>
           </div>
