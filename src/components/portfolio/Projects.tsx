@@ -5,6 +5,16 @@ import { projects } from "@/data/portfolio-data";
 import { CodeSnippet } from "./CodeSnippet";
 import { useState } from "react";
 
+import projectFinwise from "@/assets/project-finwise.jpg";
+import projectFitverse from "@/assets/project-fitverse.jpg";
+import projectAria from "@/assets/project-aria.jpg";
+
+const projectImages: Record<string, string> = {
+  "proj-1": projectFinwise,
+  "proj-2": projectFitverse,
+  "proj-3": projectAria,
+};
+
 export const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
@@ -34,19 +44,32 @@ export const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="card-clean overflow-hidden"
+              className="card-clean overflow-hidden group"
             >
+              {/* Thumbnail */}
+              {projectImages[project.id] && (
+                <div className="relative overflow-hidden">
+                  <img
+                    src={projectImages[project.id]}
+                    alt={`${project.title} screenshot`}
+                    className="w-full h-48 sm:h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                  {project.featured && (
+                    <span className="absolute top-3 left-3 px-2.5 py-1 text-[10px] font-semibold rounded-full bg-primary text-primary-foreground shadow-lg">
+                      Featured
+                    </span>
+                  )}
+                </div>
+              )}
+
               <div className="p-6 sm:p-8">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-heading text-xl font-bold text-foreground">{project.title}</h3>
-                      {project.featured && (
-                        <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-primary/8 text-primary border border-primary/15">Featured</span>
-                      )}
-                    </div>
-                    <p className="text-sm text-primary font-medium">{project.description}</p>
+                    <h3 className="font-heading text-xl font-bold text-foreground">{project.title}</h3>
+                    <p className="text-sm text-primary font-medium mt-0.5">{project.description}</p>
                   </div>
                   <div className="flex gap-1.5">
                     {project.githubUrl && (
@@ -64,7 +87,7 @@ export const Projects = () => {
                   </div>
                 </div>
 
-                {/* Case Study: Problem → Solution → Impact */}
+                {/* Case Study */}
                 <div className="grid sm:grid-cols-3 gap-4 mb-5">
                   <div className="p-3 rounded-xl bg-secondary/50 border border-border">
                     <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Problem</p>
