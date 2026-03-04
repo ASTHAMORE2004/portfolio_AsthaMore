@@ -114,6 +114,72 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "proj-4",
+    title: "Serverless Multi-Tenant Analytics",
+    description: "SaaS Analytics Platform on AWS",
+    longDescription: "Built a SaaS analytics platform on AWS with event-driven ingestion and tenant-isolated storage, achieving 90% uptime and <200ms latency for 1,000+ concurrent users. Implemented RBAC authentication and CI/CD pipelines.",
+    problem: "Multi-tenant analytics systems struggle with data isolation, high concurrency, and zero-downtime deployments at scale.",
+    solution: "Event-driven ingestion with tenant-isolated storage on AWS, RBAC authentication, and CI/CD pipelines enabling zero-downtime deployments.",
+    image: "",
+    technologies: ["AWS Lambda", "S3", "DynamoDB", "API Gateway", "CI/CD", "RBAC", "CloudWatch"],
+    githubUrl: "https://github.com/ASTHAMORE2004",
+    featured: true,
+    metrics: [
+      { label: "Uptime", value: "90%" },
+      { label: "Latency", value: "<200ms" },
+      { label: "Concurrent Users", value: "1,000+" },
+    ],
+    codeSnippet: {
+      language: "typescript",
+      code: `// Multi-Tenant Event Ingestion
+export const handler = async (event: APIGatewayEvent) => {
+  const tenantId = event.headers["x-tenant-id"];
+  const payload = JSON.parse(event.body!);
+  
+  await dynamodb.put({
+    TableName: \`analytics-\${tenantId}\`,
+    Item: { ...payload, timestamp: Date.now() }
+  }).promise();
+  
+  return { statusCode: 200, body: "Ingested" };
+};`,
+      description: "Serverless event ingestion with tenant-isolated DynamoDB storage",
+    },
+  },
+  {
+    id: "proj-3",
+    title: "ARIA – Intelligent Loan Assistant",
+    description: "Production-Grade Loan Origination Platform for Tata Capital",
+    longDescription: "Architected a production-grade loan origination platform with AI-powered OCR, real-time document validation, and automated KYC/AML compliance. Designed an intelligent document processing microservice with LLM-powered structured extraction and multi-stage validation.",
+    problem: "Loan origination involves manual document review, fragmented KYC/AML checks, and slow turnaround — causing compliance risks and customer drop-offs.",
+    solution: "AI-powered OCR with LLM-structured extraction, real-time document validation, automated KYC/AML compliance, and encrypted cloud storage with row-level security isolation.",
+    image: "",
+    technologies: ["AI/ML", "OCR", "LLM", "Python", "React", "FastAPI", "KYC/AML", "Cloud Storage"],
+    liveUrl: "https://ey-techathon-project-git-main-astha-mores-projects.vercel.app",
+    githubUrl: "https://github.com/ASTHAMORE2004/Fin-companion-AI",
+    featured: true,
+    metrics: [
+      { label: "OCR Confidence", value: "94%+" },
+      { label: "Latency", value: "<3s" },
+      { label: "Doc Types", value: "PAN/Aadhaar/Income" },
+    ],
+    codeSnippet: {
+      language: "python",
+      code: `# ARIA - Intelligent Document Processing
+class DocumentProcessor:
+    def __init__(self):
+        self.ocr_engine = AIEngine(confidence=0.94)
+        self.validators = [KYCValidator(), AMLValidator()]
+    
+    async def process_document(self, doc: Document):
+        extracted = await self.ocr_engine.extract(doc)
+        validated = await self.multi_stage_validate(extracted)
+        encrypted = await self.store_encrypted(validated)
+        return {"status": "verified", "data": encrypted}`,
+      description: "LLM-powered document processing with multi-stage KYC/AML validation",
+    },
+  },
+  {
     id: "proj-1",
     title: "FinWise",
     description: "Micro-investing & Smart Spending for Students",
@@ -193,72 +259,6 @@ const useFitnessAI = (userId: string) => {
   return { recommendations, getPersonalizedWorkout };
 };`,
       description: "Custom React Native hook for AI-powered fitness recommendations",
-    },
-  },
-  {
-    id: "proj-3",
-    title: "ARIA – Intelligent Loan Assistant",
-    description: "Production-Grade Loan Origination Platform for Tata Capital",
-    longDescription: "Architected a production-grade loan origination platform with AI-powered OCR, real-time document validation, and automated KYC/AML compliance. Designed an intelligent document processing microservice with LLM-powered structured extraction and multi-stage validation.",
-    problem: "Loan origination involves manual document review, fragmented KYC/AML checks, and slow turnaround — causing compliance risks and customer drop-offs.",
-    solution: "AI-powered OCR with LLM-structured extraction, real-time document validation, automated KYC/AML compliance, and encrypted cloud storage with row-level security isolation.",
-    image: "",
-    technologies: ["AI/ML", "OCR", "LLM", "Python", "React", "FastAPI", "KYC/AML", "Cloud Storage"],
-    liveUrl: "https://ey-techathon-project-git-main-astha-mores-projects.vercel.app",
-    githubUrl: "https://github.com/ASTHAMORE2004/Fin-companion-AI",
-    featured: true,
-    metrics: [
-      { label: "OCR Confidence", value: "94%+" },
-      { label: "Latency", value: "<3s" },
-      { label: "Doc Types", value: "PAN/Aadhaar/Income" },
-    ],
-    codeSnippet: {
-      language: "python",
-      code: `# ARIA - Intelligent Document Processing
-class DocumentProcessor:
-    def __init__(self):
-        self.ocr_engine = AIEngine(confidence=0.94)
-        self.validators = [KYCValidator(), AMLValidator()]
-    
-    async def process_document(self, doc: Document):
-        extracted = await self.ocr_engine.extract(doc)
-        validated = await self.multi_stage_validate(extracted)
-        encrypted = await self.store_encrypted(validated)
-        return {"status": "verified", "data": encrypted}`,
-      description: "LLM-powered document processing with multi-stage KYC/AML validation",
-    },
-  },
-  {
-    id: "proj-4",
-    title: "Serverless Multi-Tenant Analytics",
-    description: "SaaS Analytics Platform on AWS",
-    longDescription: "Built a SaaS analytics platform on AWS with event-driven ingestion and tenant-isolated storage, achieving 90% uptime and <200ms latency for 1,000+ concurrent users. Implemented RBAC authentication and CI/CD pipelines.",
-    problem: "Multi-tenant analytics systems struggle with data isolation, high concurrency, and zero-downtime deployments at scale.",
-    solution: "Event-driven ingestion with tenant-isolated storage on AWS, RBAC authentication, and CI/CD pipelines enabling zero-downtime deployments.",
-    image: "",
-    technologies: ["AWS Lambda", "S3", "DynamoDB", "API Gateway", "CI/CD", "RBAC", "CloudWatch"],
-    githubUrl: "https://github.com/ASTHAMORE2004",
-    featured: true,
-    metrics: [
-      { label: "Uptime", value: "90%" },
-      { label: "Latency", value: "<200ms" },
-      { label: "Concurrent Users", value: "1,000+" },
-    ],
-    codeSnippet: {
-      language: "typescript",
-      code: `// Multi-Tenant Event Ingestion
-export const handler = async (event: APIGatewayEvent) => {
-  const tenantId = event.headers["x-tenant-id"];
-  const payload = JSON.parse(event.body!);
-  
-  await dynamodb.put({
-    TableName: \`analytics-\${tenantId}\`,
-    Item: { ...payload, timestamp: Date.now() }
-  }).promise();
-  
-  return { statusCode: 200, body: "Ingested" };
-};`,
-      description: "Serverless event ingestion with tenant-isolated DynamoDB storage",
     },
   },
 ];
