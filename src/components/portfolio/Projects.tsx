@@ -8,11 +8,13 @@ import { useState } from "react";
 import projectFinwise from "@/assets/project-finwise.jpg";
 import projectFitverse from "@/assets/project-fitverse.jpg";
 import projectAria from "@/assets/project-aria.jpg";
+import projectAnalytics from "@/assets/project-analytics.jpg";
 
 const projectImages: Record<string, string> = {
   "proj-1": projectFinwise,
   "proj-2": projectFitverse,
   "proj-3": projectAria,
+  "proj-4": projectAnalytics,
 };
 
 export const Projects = () => {
